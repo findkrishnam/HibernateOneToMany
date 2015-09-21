@@ -41,10 +41,9 @@ public class HibernateOneToManyTester {
             Set<Employee> employees = new HashSet<Employee>();
             employees.add(emp1);
             employees.add(emp2);
+
             company.setEmployees(employees);
-            
             session.save(company);
-            txn.commit();
             
         }catch(HibernateException hx){
             txn.rollback();
