@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity(name="employee")
 public class Employee implements java.io.Serializable {
@@ -35,14 +37,15 @@ public class Employee implements java.io.Serializable {
     @Column(name="password")
     private String password;
     
-    @Column(name="company")
-    private String company;
+    @ManyToOne
+    @JoinColumn(name="company")
+    private Company company;
 
-    public String getCompany() {
+    public Company getCompany() {
         return company;
     }
 
-    public void setCompany(String company) {
+    public void setCompany(Company company) {
         this.company = company;
     }
 

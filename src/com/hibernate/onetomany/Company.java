@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity(name="company")
@@ -34,8 +33,7 @@ public class Company implements Serializable {
     @Column(name = "country")
     private String country;
    
-    @OneToMany(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
-    @JoinColumn(name = "company")
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, targetEntity = Employee.class)
     private Set<Employee> employees;
 
     public Company() {
