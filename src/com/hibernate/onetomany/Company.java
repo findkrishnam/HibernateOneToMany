@@ -1,6 +1,7 @@
 package com.hibernate.onetomany;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -19,7 +20,7 @@ public class Company implements Serializable {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private long addressID;
+    private Integer addressID;
     
     @Column(name = "street")
     private String street;
@@ -47,11 +48,11 @@ public class Company implements Serializable {
         this.country = country;
     }
 
-    public long getAddressID() {
+    public Integer getAddressID() {
         return addressID;
     }
 
-    public void setAddressID(long addressID) {
+    public void setAddressID(Integer addressID) {
         this.addressID = addressID;
     }
 
